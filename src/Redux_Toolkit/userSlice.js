@@ -18,3 +18,21 @@ const userSlice = createSlice({
 
 export const {setUserInfo} = userSlice.actions;
 export default userSlice.reducer;
+
+// const iniialState = {
+//     admin: userLocalService.get(),
+//     test: true,
+// }
+
+// const adminSlice = createSlice({
+//     name: "adminSlice",
+//     initialState,
+//     reducers: {
+//         setAdminInfo: (state, action) => {
+//             state.admin = action.payload;
+//         }
+//     }
+// })
+
+// export const {setAdminInfo} = adminSlice.actions;
+// export default adminSlice.reducer;

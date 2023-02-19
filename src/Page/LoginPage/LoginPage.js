@@ -27,6 +27,7 @@ export default function LoginPage() {
         userLocalService.set(res.data);
       })
       .catch((err) => {
+        console.log('err: ', err);
         message.error("Đăng nhập thất bại");
       });
   };
