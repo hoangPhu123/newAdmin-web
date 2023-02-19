@@ -11,12 +11,12 @@ export const postUser = () => {
 };
 
 // find a user
-export const getFindUser = () => {
+export const getFindUser = (id) => {
   return https.get(`/users/${id}`);
 };
 
 // update user
-export const updateUser = () => {
+export const updateUser = (id) => {
   return https.patch(`/users/${id}`);
 };
 
