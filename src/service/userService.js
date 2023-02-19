@@ -1,9 +1,5 @@
-import { https } from './configURL';
+import { https } from "./configURL";
 
-export let postLogin = (data) => { 
-    return https.post("/api/QuanLyNguoiDung/DangNhap", data);
-}
-
-export let postRegister = () => { 
-    return https.post("/api/QuanLyNguoiDung/DangKy");
-}
+export let postLogin = (data) => {
+  return https.post("/auth/login", data);
+};
