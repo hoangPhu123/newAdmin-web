@@ -4,7 +4,6 @@ import { useState } from "react";
 import { deleteUser, getUserList } from "./../../service/adminService";
 import { Button, message, Space, Table, Tag } from "antd";
 import { userColumn } from "./utils";
-import withAuth from './../../HOC/withAuth';
 
 function AdminUserPage() {
   const [userArr, setUserArr] = useState([]);
@@ -63,4 +62,4 @@ function AdminUserPage() {
   );
 }
 
-export default withAuth(AdminUserPage);
+export default AdminUserPage;

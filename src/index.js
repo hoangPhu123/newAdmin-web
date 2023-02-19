@@ -9,14 +9,14 @@ import { rootReducer } from './redux/reducers/rootReducer';
 import thunk from "redux-thunk"
 import { configureStore } from '@reduxjs/toolkit';
 import userSlice from "./Redux_Toolkit/userSlice"
-import spinnerSlice from './Redux_Toolkit/spinnerSlice';
+// import spinnerSlice from './Redux_Toolkit/spinnerSlice';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store_toolkit = configureStore({
   reducer: {
     userSlice: userSlice,
-    spinnerSlice: spinnerSlice
+    // spinnerSlice: spinnerSlice
   }
 })
 
