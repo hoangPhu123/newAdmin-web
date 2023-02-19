@@ -6,8 +6,11 @@ import { useDispatch } from "react-redux";
 import { SET_USER_LOGIN } from "./../../redux/constant/userConstant";
 import { userLocalService } from "../../service/localService";
 import Lottie from "lottie-react";
-import bg_animate from "../../assets/42623-merry-christmas.json"
-import { setUserAction, setUserActionService } from './../../redux/Action/userAction';
+import bg_animate from "../../assets/42623-merry-christmas.json";
+import {
+  setUserAction,
+  setUserActionService,
+} from "./../../redux/Action/userAction";
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -18,36 +21,37 @@ export default function LoginPage() {
       .then((res) => {
         dispatch(setUserAction(res.data.content));
         setTimeout(() => {
-          navigate("/");
+          navigate("/admin/user");
         }, 1000);
         message.success("Đăng nhập thành công");
         userLocalService.set(res.data.content);
       })
       .catch((err) => {
-        // console.log(err);
         message.error("Đăng nhập thất bại");
       });
   };
 
   // OnFinishReduxThunk
-  const onFinishReduxThunk = (values) => { 
+  const onFinishReduxThunk = (values) => {
     const handleNavigate = () => {
       setTimeout(() => {
-        navigate("/")
-      }, 1000)
-    }
+        navigate("/");
+      }, 1000);
+    };
 
-    dispatch(setUserActionService(values,handleNavigate));
-  }
-
-  const onFinishFailed = (errorInfo) => {
-    
+    dispatch(setUserActionService(values, handleNavigate));
   };
+
+  const onFinishFailed = (errorInfo) => {};
   return (
     <div className="bg-blue-600 h-screen w-screen flex items-center justify-center">
       <div className="container p-5 bg-white rounded flex items-center object-cover">
         <div className="w-1/2 flex justify-center">
-          <Lottie animationData={bg_animate} className = "w-2/3 h-80" loop={true} />
+          <Lottie
+            animationData={bg_animate}
+            className="w-2/3 h-80"
+            loop={true}
+          />
         </div>
         <div className="w-1/2">
           <Form
