@@ -12,8 +12,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AdminUserPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<AdminUserPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>

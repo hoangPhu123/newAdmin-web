@@ -16,21 +16,21 @@ function AdminUserPage() {
           fetchUserList();
         })
         .catch((err) => {
-          message.error(err.response.data.content);
+          message.error(err.response.data);
         });
     };
     let fetchUserList = () => {
       getUserList()
         .then((res) => {
-          let userList = res.data.content.map((item) => {
+          let userList = res.data.results.map((item) => {
             return {
               ...item,
-              key: item.taiKhoan,
+              key: item.email,
               action: (
                 <>
                   <Button
                     onClick={() => {
-                      handleRemoveUser(item.taiKhoan);
+                      handleRemoveUser(item.email);
                     }}
                     type="primary"
                     danger

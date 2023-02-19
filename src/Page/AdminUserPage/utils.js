@@ -1,65 +1,69 @@
-import { Tag } from "antd"
+import { Tag } from "antd";
 
 export const userColumn = [
-    {
-        title: "Ten",
-        dataIndex: "hoTen",
-        key: "hoTen"
+  {
+    title: "Account",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "Email",
+    dataIndex: "email",
+    key: "email",
+  },
+  {
+    title: "Role",
+    dataIndex: "role",
+    key: "role",
+    render: (text) => {
+      if (text == "admin") {
+        return <Tag style={{ color: "red" }}>Admin</Tag>;
+      } else {
+        return <Tag style={{ color: "blue" }}>User</Tag>;
+      }
     },
-    {
-        title: "taiKhoan",
-        dataIndex: "taiKhoan",
-        key: "taiKhoan"
-    },
-    {
-        title: "Email",
-        dataIndex: "email",
-        key: "email"
-    },
-    {
-        title: "maLoaiNguoiDung",
-        dataIndex: "maLoaiNguoiDung",
-        key: "maLoaiNguoiDung",
-        render: (text) => {
-            if(text == "QuanTri") {
-                return <Tag style={{color: "red"}} >Admin</Tag>
-            } else {
-                return <Tag style={{color: "blue"}}>User</Tag>
-            }
-        }
-    },
-    {
-        title: "Active",
-        dataIndex: "action",
-        key: "action"
-    }
-]
+  },
+  {
+    title: "Two Game",
+    dataIndex: "score",
+    key: "score",
+  },
+  {
+    title: "Snake Game",
+    dataIndex: "snake_score",
+    key: "snake_score",
+  },
+  {
+    title: "Fruit Ninja",
+    dataIndex: "menja_score",
+    key: "menja_score",
+  },
+  {
+    title: "Color Blast",
+    dataIndex: "color_blast_score",
+    key: "color_blast_score",
+  },
+  {
+    title: "Active",
+    dataIndex: "action",
+    key: "action",
+  },
+];
 
-
-
-
-
-
-
-
-
-
-
-
-// : 
+// :
 // "admintest123@gmail.com"
 // hoTen
-// : 
+// :
 // "Trần hoàng lâm"
 // maLoaiNguoiDung
-// : 
+// :
 // "QuanTri"
 // matKhau
-// : 
+// :
 // "admintest"
 // soDT
-// : 
+// :
 // "0974287784"
 // taiKhoan
-// : 
+// :
 // "admintest"

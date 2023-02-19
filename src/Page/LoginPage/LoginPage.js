@@ -19,12 +19,12 @@ export default function LoginPage() {
   const onFinish = (values) => {
     postLogin(values)
       .then((res) => {
-        dispatch(setUserAction(res.data.content));
+        dispatch(setUserAction(res.data));
         setTimeout(() => {
-          navigate("/admin/user");
+          navigate("/");
         }, 1000);
         message.success("Đăng nhập thành công");
-        userLocalService.set(res.data.content);
+        userLocalService.set(res.data);
       })
       .catch((err) => {
         message.error("Đăng nhập thất bại");
@@ -71,12 +71,12 @@ export default function LoginPage() {
             autoComplete="off"
           >
             <Form.Item
-              label="Username"
-              name="taiKhoan"
+              label="Email"
+              name="email"
               rules={[
                 {
                   required: true,
-                  message: "Please input your username!",
+                  message: "Please input your email!",
                 },
               ]}
             >
@@ -85,7 +85,7 @@ export default function LoginPage() {
 
             <Form.Item
               label="Password"
-              name="matKhau"
+              name="password"
               rules={[
                 {
                   required: true,
