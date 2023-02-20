@@ -2,7 +2,7 @@
 // import { useSelector } from "react-redux";
 // import { NavLink } from "react-router-dom";
 // import { userLocalService } from "../../service/localService";
-// // import {adminSlice} from "../../Redux_Toolkit/adminSlice";
+// import { adminSlice } from "../../Redux_Toolkit/adminSlice";
 
 // export default function Logo() {
 //   const admin = useSelector((state) => {
@@ -11,13 +11,13 @@
 
 //   const handleLogout = () => {
 //     userLocalService.remove();
-//     window.location.reload;
+//     window.location.reload();
 //   };
 
 //   const renderContent = () => {
-//     if (admin) {
-//       return (
-//         <>
+//     return (
+//       admin && (
+//         <nav>
 //           <span>{admin?.username}</span>
 //           <button
 //             onClick={handleLogout}
@@ -25,19 +25,9 @@
 //           >
 //             Log Out
 //           </button>
-//         </>
-//       );
-//     } else {
-//       return (
-//         <>
-//           <NavLink to={"/login"}>
-//             <button className="rounded border-black px-5 py-2">
-//               Đăng nhập
-//             </button>
-//           </NavLink>
-//         </>
-//       );
-//     }
+//         </nav>
+//       )
+//     );
 //   };
 
 //   return <div>{renderContent()}</div>;

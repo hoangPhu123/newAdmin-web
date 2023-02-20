@@ -6,8 +6,8 @@ export const getUserList = () => {
 };
 
 // create a user
-export const postUser = () => {
-  return https.post("/users");
+export const postUser = (payload) => {
+  return https.post("/users", payload.user.name);
 };
 
 // find a user
@@ -23,4 +23,8 @@ export const updateUser = (id) => {
 // delete user
 export const deleteUser = (id) => {
   return https.delete(`users/${id}`);
+};
+
+export const getUserListPagination = (page) => {
+  return https.get(`users?page=${page}&totalPages=10`);
 };

@@ -49,21 +49,3 @@ export const userColumn = [
     key: "action",
   },
 ];
-
-// :
-// "admintest123@gmail.com"
-// hoTen
-// :
-// "Trần hoàng lâm"
-// maLoaiNguoiDung
-// :
-// "QuanTri"
-// matKhau
-// :
-// "admintest"
-// soDT
-// :
-// "0974287784"
-// taiKhoan
-// :
-// "admintest"
