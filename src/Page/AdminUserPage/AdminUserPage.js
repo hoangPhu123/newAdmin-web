@@ -48,8 +48,10 @@ const MyFormItem = ({ name, ...props }) => {
 function AdminUserPage() {
   const [userArr, setUserArr] = useState([]);
   const [show, setShow] = useState(false);
+  const [showEdit, setShowEdit] = useState(false);
+
   const admin = useSelector((state) => {
-    return state.userSlice.admin.user;
+    return state.userSlice.admin;
   });
 
   const handleLogout = () => {
@@ -81,6 +83,49 @@ function AdminUserPage() {
           });
         });
     };
+    let handleEditUser = () => {
+      return (
+        <>
+          {showEdit ? (
+            <Form
+              name="form_item_path"
+              layout="vertical"
+              onFinish={onFinshEdit}
+              className="bg-neutral-700 z-20 p-16 rounded-lg"
+            >
+              <MyFormItemGroup prefix={["user"]}>
+                <MyFormItemGroup prefix={["name"]}>
+                  <MyFormItem name="name" label="Account">
+                    <Input className="p-2" />
+                  </MyFormItem>
+                  <MyFormItem name="email" label="Email">
+                    <Input className="p-2" />
+                  </MyFormItem>
+                  <MyFormItem name="password" label="Password">
+                    <Input className="p-2" />
+                  </MyFormItem>
+                </MyFormItemGroup>
+              </MyFormItemGroup>
+
+              <div className="flex justify-center">
+                {" "}
+                <Button htmlType="submit" className="mr-2">
+                  Add
+                </Button>
+                <Button
+                  htmlType="submit"
+                  onClick={() => {
+                    setShowEdit(!showEdit);
+                  }}
+                >
+                  Close
+                </Button>
+              </div>
+            </Form>
+          ) : null}
+        </>
+      );
+    };
     let fetchUserList = () => {
       getUserList()
         .then((res) => {
@@ -99,9 +144,9 @@ function AdminUserPage() {
                   >
                     Delete
                   </Button>
-                  <Button type="primary" className="bg-blue-500 ml-2">
+                  {/* <Button type="primary" className="bg-blue-500 ml-2">
                     Edit
-                  </Button>
+                  </Button> */}
                 </>
               ),
             };
@@ -119,6 +164,8 @@ function AdminUserPage() {
     const rs = await postUser(value);
     console.log(rs);
   };
+
+  const onFinshEdit = () => {};
 
   return (
     <div>
